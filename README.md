@@ -17,4 +17,10 @@ Study Mode:
 - A study statistics section
 
 All cards
-A page for creating, reading, updating, and deleting a question
+- Form to create a question card: question, answer, and category
+- A grid of cards that shows the question and its answer and its progress state.
+- card grid on desktop have rows 3 columns, on tablet 2 columns, and mobile 1 column.
+- Initial grid have 12 cards. A load more button that adds 12 more.
+- A dropdown to filter by the card by its categories
+- A checkbox to toggle visibility of mastered question.
+- Editing a card will open a modal for updating it.

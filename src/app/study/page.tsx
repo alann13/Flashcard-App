@@ -1,6 +1,7 @@
 'use client'
 
 import { BookOpen, Box, Brain, CheckCircle, ChevronLeft, ChevronRight, Layers, RotateCcw, Shuffle } from 'lucide-react'
+import Link from 'next/link'
 import { useEffect, useMemo, useState } from 'react'
 import { FlashcardDisplay } from '@/components/flashcard/flashcard-display'
 import { Logo } from '@/components/flashcard/logo'
@@ -15,7 +16,6 @@ import { Flashcard, getCategories, getStatistics, isMastered } from '@/types/fla
 const STORAGE_KEY = 'flashcard-progress'
 
 export default function StudyPage() {
-  const [activeTab, setActiveTab] = useState<'study' | 'all'>('study')
   const [flashcards, setFlashcards] = useState<Flashcard[]>([])
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
   const [hideMastered, setHideMastered] = useState(false)
@@ -136,19 +136,19 @@ export default function StudyPage() {
         <header className="mb-8 flex w-full items-center justify-between">
           <Logo />
           <TabGroup>
-            <TabButton active={activeTab === 'study'} onClick={() => setActiveTab('study')}>
-              Study Mode
-            </TabButton>
-            <TabButton active={activeTab === 'all'} onClick={() => setActiveTab('all')}>
-              All Cards
-            </TabButton>
+            <Link href="/study">
+              <TabButton active={true}>Study Mode</TabButton>
+            </Link>
+            <Link href="/all-cards">
+              <TabButton active={false}>All Cards</TabButton>
+            </Link>
           </TabGroup>
         </header>
 
         {/* Main Content */}
         <div className="flex flex-col gap-8 max-[1239px]:gap-6 min-[1240px]:flex-row">
-          {/* Flashcard Section */}
-          <div className="w-full min-[1240px]:w-[51rem] overflow-hidden rounded-2xl border-[1px_3px_3px_1px] border-neutral-900 bg-neutral-0">
+            {/* Flashcard Section */}
+            <div className="w-full min-[1240px]:w-[51rem] overflow-hidden rounded-2xl border-[1px_3px_3px_1px] border-neutral-900 bg-neutral-0">
             {/* Flashcard Header */}
             <div className="flex w-full flex-col gap-0 p-5 max-[599px]:px-4 max-[599px]:py-3">
               <div className="flex w-full flex-col gap-4 sm:flex-row sm:items-center sm:justify-between max-[599px]:items-start">
