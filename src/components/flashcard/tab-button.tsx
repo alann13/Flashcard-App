@@ -13,7 +13,7 @@ export function TabButton({ active = false, children, onClick }: TabButtonProps)
     <button
       onClick={onClick}
       className={cn(
-        'flex h-11 items-center justify-center gap-0 rounded-full px-4 py-3 transition-all',
+        'flex h-11 items-center justify-center gap-0 rounded-full px-4 py-3 transition-all cursor-pointer',
         'text-base font-semibold leading-[1.2]',
         active
           ? 'bg-yellow-500 border border-neutral-900 text-neutral-900'
